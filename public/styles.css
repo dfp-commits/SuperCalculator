@@ -11,95 +11,109 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2a2a2a;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 24px;
+    margin: 0;
 }
 
 .container {
-    max-width: 500px;
+    max-width: 420px;
     width: 100%;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #1a1a1a;
     color: white;
-    padding: 20px;
+    padding: 16px 20px;
     text-align: center;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 header h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #ffffff;
 }
 
 .mode-toggle {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
 }
 
 .mode-btn {
-    padding: 8px 20px;
-    border: 2px solid white;
+    padding: 6px 16px;
+    border: none;
     background: transparent;
-    color: white;
-    border-radius: 20px;
+    color: #cccccc;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.2s ease;
 }
 
 .mode-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #2a2a2a;
+    color: #ffffff;
 }
 
 .mode-btn.active {
-    background: white;
-    color: #667eea;
+    background: #2a2a2a;
+    color: #ffffff;
 }
 
 .display-container {
     background: #1a1a1a;
     color: white;
-    padding: 20px;
-    min-height: 120px;
+    padding: 32px 24px 40px 24px;
+    min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: 0;
 }
 
 .expression {
-    font-size: 18px;
+    font-size: 14px;
     color: #888;
-    min-height: 25px;
-    margin-bottom: 10px;
+    min-height: 20px;
+    margin-bottom: 8px;
     word-break: break-all;
+    line-height: 1.4;
 }
 
 .result {
-    font-size: 36px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 300;
     word-break: break-all;
     text-align: right;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #ffffff;
 }
 
 .calculator-container {
-    padding: 20px;
+    padding: 16px 16px 24px 16px;
+    background: #1a1a1a;
 }
 
 .calculator-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 .calculator-grid.scientific {
@@ -107,80 +121,123 @@ header h1 {
 }
 
 .btn {
-    padding: 20px;
+    padding: 20px 16px;
     font-size: 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
+    transition: all 0.1s ease;
+    font-weight: 400;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+/* Ensure all number buttons are the same size */
+.btn-number {
+    font-size: 22px;
+    font-weight: 400;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #353535;
+    transform: none;
+    box-shadow: none;
 }
 
 .btn:active {
-    transform: translateY(0);
+    background: #404040;
+    transform: none;
+    box-shadow: none;
 }
 
 .btn-number {
-    background: #f0f0f0;
-    color: #333;
+    background: #2a2a2a;
+    color: #ffffff;
 }
 
 .btn-number:hover {
-    background: #e0e0e0;
+    background: #353535;
+}
+
+.btn-number:active {
+    background: #404040;
 }
 
 .btn-operator {
-    background: #ff9500;
-    color: white;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 24px;
 }
 
 .btn-operator:hover {
-    background: #e6850e;
+    background: #353535;
+}
+
+.btn-operator:active {
+    background: #404040;
 }
 
 .btn-function {
-    background: #4a90e2;
-    color: white;
+    background: #2a2a2a;
+    color: #ffffff;
     font-size: 16px;
+    font-weight: 400;
 }
 
 .btn-function:hover {
-    background: #357abd;
+    background: #353535;
+}
+
+.btn-function:active {
+    background: #404040;
 }
 
 .btn-clear {
-    background: #ff3b30;
-    color: white;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-weight: 400;
 }
 
 .btn-clear:hover {
-    background: #d63027;
+    background: #353535;
+}
+
+.btn-clear:active {
+    background: #404040;
 }
 
 .btn-equals {
-    background: #34c759;
+    background: #4A9EFF;
     color: white;
     grid-row: span 2;
+    font-weight: 400;
+    font-size: 24px;
 }
 
 .btn-equals:hover {
-    background: #2aa84a;
+    background: #5AAFFF;
+}
+
+.btn-equals:active {
+    background: #3A8EEF;
 }
 
 .btn-zero {
-    grid-column: span 1;
+    grid-column: span 2;
 }
 
 .history-container {
-    padding: 20px;
-    border-top: 1px solid #eee;
+    padding: 20px 24px 24px 24px;
+    border-top: 1px solid #2a2a2a;
     max-height: 300px;
     overflow-y: auto;
+    background: #1a1a1a;
 }
 
 .history-header {
@@ -191,22 +248,25 @@ header h1 {
 }
 
 .history-header h2 {
-    font-size: 18px;
-    color: #333;
+    font-size: 16px;
+    color: #cccccc;
+    font-weight: 400;
 }
 
 .btn-refresh {
     padding: 6px 12px;
-    background: #667eea;
-    color: white;
+    background: #2a2a2a;
+    color: #cccccc;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
+    font-weight: 400;
 }
 
 .btn-refresh:hover {
-    background: #5568d3;
+    background: #353535;
+    color: #ffffff;
 }
 
 .history-list {
@@ -217,36 +277,36 @@ header h1 {
 
 .history-item {
     padding: 12px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 3px solid #667eea;
+    background: #2a2a2a;
+    border-radius: 4px;
+    border-left: 3px solid #4A9EFF;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .history-item:hover {
-    background: #e9ecef;
+    background: #353535;
     transform: translateX(5px);
 }
 
 .history-expression {
     font-size: 14px;
-    color: #666;
+    color: #888;
     margin-bottom: 4px;
 }
 
 .history-result {
     font-size: 18px;
-    font-weight: bold;
-    color: #333;
+    font-weight: 400;
+    color: #ffffff;
 }
 
 .history-mode {
     font-size: 11px;
-    color: #999;
+    color: #666;
     margin-top: 4px;
 }
 
 .error {
-    color: #ff3b30;
+    color: #ff5555;
 }

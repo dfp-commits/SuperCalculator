@@ -27,13 +27,13 @@
             <div id="standardCalculator" class="calculator-grid">
                 <button class="btn btn-clear" onclick="clearAll()">C</button>
                 <button class="btn btn-clear" onclick="clearEntry()">CE</button>
+                <button class="btn btn-operator" onclick="appendOperator('(')">(</button>
                 <button class="btn btn-operator" onclick="appendOperator('/')">/</button>
-                <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
                 
                 <button class="btn btn-number" onclick="appendNumber('7')">7</button>
                 <button class="btn btn-number" onclick="appendNumber('8')">8</button>
                 <button class="btn btn-number" onclick="appendNumber('9')">9</button>
-                <button class="btn btn-operator" onclick="appendOperator('-')">-</button>
+                <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
                 
                 <button class="btn btn-number" onclick="appendNumber('4')">4</button>
                 <button class="btn btn-number" onclick="appendNumber('5')">5</button>
@@ -43,12 +43,10 @@
                 <button class="btn btn-number" onclick="appendNumber('1')">1</button>
                 <button class="btn btn-number" onclick="appendNumber('2')">2</button>
                 <button class="btn btn-number" onclick="appendNumber('3')">3</button>
-                <button class="btn btn-equals" onclick="calculate()" rowspan="2">=</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
                 
                 <button class="btn btn-number btn-zero" onclick="appendNumber('0')">0</button>
                 <button class="btn btn-number" onclick="appendDecimal()">.</button>
-                <button class="btn btn-operator" onclick="appendOperator('(')">(</button>
-                <button class="btn btn-operator" onclick="appendOperator(')')">)</button>
             </div>
 
             <!-- Scientific Calculator -->
@@ -65,13 +63,13 @@
                 
                 <button class="btn btn-function" onclick="scientificOperation('exp')">e^x</button>
                 <button class="btn btn-function" onclick="scientificOperation('pow')">x^y</button>
+                <button class="btn btn-operator" onclick="appendOperator('(')">(</button>
                 <button class="btn btn-operator" onclick="appendOperator('/')">/</button>
-                <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
                 
                 <button class="btn btn-number" onclick="appendNumber('7')">7</button>
                 <button class="btn btn-number" onclick="appendNumber('8')">8</button>
                 <button class="btn btn-number" onclick="appendNumber('9')">9</button>
-                <button class="btn btn-operator" onclick="appendOperator('-')">-</button>
+                <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
                 
                 <button class="btn btn-number" onclick="appendNumber('4')">4</button>
                 <button class="btn btn-number" onclick="appendNumber('5')">5</button>
@@ -81,12 +79,10 @@
                 <button class="btn btn-number" onclick="appendNumber('1')">1</button>
                 <button class="btn btn-number" onclick="appendNumber('2')">2</button>
                 <button class="btn btn-number" onclick="appendNumber('3')">3</button>
-                <button class="btn btn-equals" onclick="calculate()" rowspan="2">=</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
                 
                 <button class="btn btn-number btn-zero" onclick="appendNumber('0')">0</button>
                 <button class="btn btn-number" onclick="appendDecimal()">.</button>
-                <button class="btn btn-operator" onclick="appendOperator('(')">(</button>
-                <button class="btn btn-operator" onclick="appendOperator(')')">)</button>
             </div>
         </div>
 
