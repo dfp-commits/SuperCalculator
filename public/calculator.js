@@ -219,15 +219,59 @@ function showError(message) {
  * Loads calculation history
  */
 async function loadHistory() {
+    const historyEl = document.getElementById('history');
+    const refreshBtn = document.querySelector('.btn-refresh');
+    
+    if (!historyEl) {
+        console.error('History element not found');
+        return;
+    }
+    
+    // Show loading state
+    if (refreshBtn) {
+        refreshBtn.disabled = true;
+        refreshBtn.textContent = 'Loading...';
+    }
+    historyEl.innerHTML = '<div style="color: #999; text-align: center; padding: 20px;">Loading history...</div>';
+    
     try {
         const response = await fetch(`${API_BASE}/history?limit=10`);
+        
+        if (!response.ok) {
+            let errorMessage = 'Failed to load history';
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+            }
+            historyEl.innerHTML = `<div style="color: #ff5555; text-align: center; padding: 20px;">Error: ${errorMessage}</div>`;
+            if (refreshBtn) {
+                refreshBtn.disabled = false;
+                refreshBtn.textContent = 'Refresh';
+            }
+            return;
+        }
+        
         const history = await response.json();
         
-        const historyEl = document.getElementById('history');
         historyEl.innerHTML = '';
+        
+        if (!Array.isArray(history)) {
+            historyEl.innerHTML = '<div style="color: #ff5555; text-align: center; padding: 20px;">Error: Invalid history data format</div>';
+            if (refreshBtn) {
+                refreshBtn.disabled = false;
+                refreshBtn.textContent = 'Refresh';
+            }
+            return;
+        }
         
         if (history.length === 0) {
             historyEl.innerHTML = '<div style="color: #999; text-align: center; padding: 20px;">No calculations yet</div>';
+            if (refreshBtn) {
+                refreshBtn.disabled = false;
+                refreshBtn.textContent = 'Refresh';
+            }
             return;
         }
         
@@ -235,21 +279,32 @@ async function loadHistory() {
             const itemEl = document.createElement('div');
             itemEl.className = 'history-item';
             itemEl.onclick = () => {
-                currentExpression = item.expression;
-                currentResult = item.result;
+                currentExpression = item.expression || '';
+                currentResult = item.result || '0';
                 waitingForNewInput = false;
                 updateDisplay();
             };
             
             itemEl.innerHTML = `
-                <div class="history-expression">${item.expression}</div>
-                <div class="history-result">= ${item.result}</div>
-                <div class="history-mode">${item.mode}</div>
+                <div class="history-expression">${item.expression || ''}</div>
+                <div class="history-result">= ${item.result || ''}</div>
+                <div class="history-mode">${item.mode || 'standard'}</div>
             `;
             
             historyEl.appendChild(itemEl);
         });
+        
+        if (refreshBtn) {
+            refreshBtn.disabled = false;
+            refreshBtn.textContent = 'Refresh';
+        }
     } catch (error) {
         console.error('Failed to load history:', error);
+        const errorMsg = error.message || 'Network error - check console for details';
+        historyEl.innerHTML = `<div style="color: #ff5555; text-align: center; padding: 20px;">Error: ${errorMsg}</div>`;
+        if (refreshBtn) {
+            refreshBtn.disabled = false;
+            refreshBtn.textContent = 'Refresh';
+        }
     }
 }
