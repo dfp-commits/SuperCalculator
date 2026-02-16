@@ -4,16 +4,12 @@
 
 ### 1. Neon PostgreSQL Database Connection String
 
-**Where to get it:**
-1. Sign up/login at [neon.tech](https://neon.tech)
-2. Create a new project
-3. Go to your project dashboard
-4. Copy the **Connection String** (looks like: `postgresql://user:password@host/database?sslmode=require`)
+**✅ You already have this!** See `NEON_SETUP.md` for your specific connection string.
 
 **What to do with it:**
 - Add it as an environment variable in Netlify (see DEPLOYMENT.md)
 - Variable name: `DATABASE_URL`
-- Value: Your Neon connection string
+- Value: Your Neon connection string (see `NEON_SETUP.md`)
 
 ### 2. Netlify Account
 
