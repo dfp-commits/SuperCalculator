@@ -25,11 +25,15 @@ function getPool() {
       throw new Error('DATABASE_URL environment variable is not set');
     }
 
+    // Parse connection string - Neon includes SSL params in URL
+    // The pg library will handle sslmode and channel_binding from the URL automatically
     pool = new Pool({
       connectionString: connectionString,
-      ssl: {
+      // SSL is handled via connection string parameters (sslmode=require)
+      // Additional SSL config only needed if not in connection string
+      ssl: connectionString.includes('sslmode=require') ? {
         rejectUnauthorized: false
-      }
+      } : false
     });
 
     // Initialize table on first connection
