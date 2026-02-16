@@ -1,0 +1,30 @@
+[build]
+  command = "npm install"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/api/calculate"
+  to = "/.netlify/functions/calculate"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/calculate/scientific"
+  to = "/.netlify/functions/calculate-scientific"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/history"
+  to = "/.netlify/functions/history"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/history/cleanup"
+  to = "/.netlify/functions/history-cleanup"
+  status = 200
+  force = true
