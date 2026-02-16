@@ -7,7 +7,11 @@
 
 const calculatorEngine = require('../core/calculator-engine');
 const validator = require('../core/calculation-validator');
-const historyStore = require('../infrastructure/history-store');
+
+// Use Neon PostgreSQL in production (Netlify), SQLite locally
+const historyStore = process.env.DATABASE_URL
+  ? require('../infrastructure/history-store-neon')
+  : require('../infrastructure/history-store');
 
 /**
  * Processes a standard calculation
